@@ -31,7 +31,7 @@ body {
                 border: none;
                 outline: none;
                 padding: 0.45%;
-                width: 95%;
+                width: 90%;
             }
         }
 
@@ -42,6 +42,7 @@ body {
             border: none;
             border-radius: 3px;
             padding: 0.6%;
+            cursor: pointer;
         }
         button:hover {
         background-color: #006781;
@@ -63,16 +64,131 @@ body {
             border: none;
             border-radius: 3px;
             padding: 0.6%;
+            cursor: pointer;
         }
         button:hover {
         background-color: #006781;
         cursor: pointer;
         }
-    }
 
+    }
+    
     #edit, #delete {
         display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        justify-content: center;  
+        align-items: center;       
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
     }
+
+    #edit {
+        .modal_box {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;
+            min-width: 220px;
+            width: 15%;
+            padding: 1% 2% 1.5%;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        #edition {
+            border: 2px solid black;
+            outline: none;
+            padding: 1.5%;
+            width:100%;
+            margin-top: 0px;
+            margin-bottom: 7%;
+        }
+
+        .edition-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 6%;
+
+            #save {
+                background-color: #0b97bb;
+                color: white;
+                border: none;
+                border-radius: 7px;
+                cursor: pointer;
+                padding: 3% 6%;
+            }
+            #save:hover {
+                border: 2px solid black;
+            }
+
+            #ed-cancel {
+                background-color: #e94343;
+                color: #ffffff;
+                border: none;
+                padding: 3% 6%;
+                border-radius: 7px;
+                cursor: pointer;
+            }
+            #ed-cancel:hover {
+                background-color: #d32f2f;
+            }
+        }
+    }
+
+    #delete {
+        .modal_box {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;
+            min-width: 250px;
+            width: 17%;
+            padding: 1% 2% 1.5%;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+        .modal_buttons {
+            display: flex;
+            justify-content: center;
+            gap: 6%;
+
+            #Confirm {
+                background-color: #c0bfbf;
+                border: none;
+                border-radius: 7px;
+                cursor: pointer;
+                padding: 3% 6%;
+            }
+            #Confirm:hover {
+                background-color: #cfcfcf;
+            }
+
+            #del-Cancel {
+                background-color: #e94343;
+                color: #ffffff;
+                border: none;
+                padding: 3% 6%;
+                border-radius: 7px;
+                cursor: pointer;
+            }
+            #del-Cancel:hover {
+                background-color: #d32f2f;
+            }
+        }
+    }
+
+    /* 
+    #edit.active, #delete.active {
+        display: flex;
+    }
+    */
 
     .delete_btn {
         align-items: center;
@@ -88,6 +204,7 @@ body {
             border: none;
             border-radius: 3px;
             padding: 0.6%;
+            cursor: pointer;
         } 
         button:hover {
         background-color: #f28e8e;
