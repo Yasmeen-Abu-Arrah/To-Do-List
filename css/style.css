@@ -1,6 +1,6 @@
 body {
     padding-top: 1.5%;
-    h1 {
+    h1, h2 {
         font-family: Arial, Helvetica, sans-serif;
         text-align: center;
     }
@@ -42,6 +42,56 @@ body {
             border: none;
             border-radius: 3px;
             padding: 0.6%;
+        }
+        button:hover {
+        background-color: #006781;
+        cursor: pointer;
+        }
+    }
+
+    #classify {
+        align-items: center;
+        border: none;
+        margin: 2.5% 10%;
+        display: flex;
+        justify-content: space-between;        
+
+        button {
+            background-color: #1196ba; 
+            width: 32%;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            padding: 0.6%;
+        }
+        button:hover {
+        background-color: #006781;
+        cursor: pointer;
+        }
+    }
+
+    #edit, #delete {
+        display: none;
+    }
+
+    .delete_btn {
+        align-items: center;
+        border: none;
+        margin: 2.5% 10%;
+        display: flex;
+        justify-content: space-between;        
+
+        button {
+            background-color: #e94343; 
+            width: 49%;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            padding: 0.6%;
+        } 
+        button:hover {
+        background-color: #f28e8e;
+        cursor: pointer;
         }
     }
 }
