@@ -29,14 +29,14 @@
     <!--to do list-->
     <h2>Todo List</h2>
     <div id="classify">
-        <button id="All">All</button>
-        <button id="Done">Done</button>
-        <button id="Todo">Todo</button>
+        <button id="filter-all">All</button>
+        <button id="filter-done">Done</button>
+        <button id="filter-todo">Todo</button>
     </div>
 
-    <ul id="todo_list"></ul>
+    <ul id="todo-list"></ul>
 
-    <div id="edit" class="active">
+    <div id="edit">
       <div class="modal_box">
         <h2>Rename Task</h2>
         <input type="text" id="edition" />
@@ -46,7 +46,7 @@
         </div>
       </div>
     </div>
-
+<!--
     <div id="delete" class="active">
       <div class="modal_box">
         <h2>Delete Task</h2>
@@ -57,11 +57,23 @@
         </div>
       </div>
     </div>
+  -->
+
+    <div id="delete">
+      <div class="modal_box">
+        <h2 id="modal-title"></h2>
+        <p id="modal-message"></p>
+        <div class="modal_buttons">
+          <button id="Confirm">Confirm</button>
+          <button id="del-Cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
 
       <!--delete buttons-->
       <div class="delete_btn">
         <button id="delete-done-tasks">Delete Done Tasks</button>
-        <button id="delete-all-taskas">Delete All Tasks</button>
+        <button id="delete-all-tasks">Delete All Tasks</button>
       </div>
    
   </body>
