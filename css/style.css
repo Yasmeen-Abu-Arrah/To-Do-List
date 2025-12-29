@@ -109,16 +109,28 @@ body {
 
                     .fa-pen {
                         color: #f8c027;
+                        border: none;
+                        cursor: pointer;
                     }
                     .fa-trash {
                         color: #de4849;
+                        border: none;
+                        cursor: pointer;      
                     }
 
                 }
             }
 
+            span {
+                flex-grow: 1;
+            }
         }
     }
+    #todo-list li.completed span {
+        text-decoration: line-through;
+        color: #e94343c5;
+    }
+
     
     #edit, #delete {
         display: none;
@@ -231,11 +243,10 @@ body {
         }
     }
 
-    /* 
+    
     #edit.active, #delete.active {
         display: flex;
     }
-    */
 
     .delete_btn {
         align-items: center;
