@@ -1,6 +1,8 @@
 
 const form = document.querySelector(".add_tasks");
 const input = document.getElementById ("To_do_input");
+const inputError = document.getElementById("input-error");
+input.addEventListener("input",clearInputError);
 const list = document.getElementById ("todo-list");
 
 const editInput = document.getElementById("edition");
@@ -24,6 +26,15 @@ let curTask = null;
 const filterAllBtn = document.getElementById("filter-all");
 const filterDoneBtn = document.getElementById("filter-done");
 const filterTodoBtn = document.getElementById("filter-todo");
+
+function showInputError(message){
+    inputError.textContent = message;
+    inputError.style.display = "block";
+}
+function clearInputError(){
+    inputError.textContent = "";
+    inputError.style.display = "none";
+}
 
 filterAllBtn.addEventListener("click", () => {
     document.querySelectorAll("#todo-list li").forEach(li => {
@@ -50,13 +61,31 @@ filterTodoBtn.addEventListener("click", () => {
 
 form.addEventListener("submit", addTask);
 
+/* here to add new task with limitations */
 function addTask(event) { 
     event.preventDefault();
     const taskText = input.value.trim();
-    if (taskText === "") { return; }
+
+    clearInputError();
+    /* if it is empty */
+    if (taskText === "") {
+        showInputError("Task can't be empty");
+        return;
+    }
+
+    /* if ti is less than 5 char */
+    if(taskText.length < 5){
+        showInputError("Task must be at least 5 characters long"); 
+        return;
+    }
+    /*start with a number */
+    if(/^\d/.test(taskText)) {
+        showInputError("Task can't start with a number");
+        return;
+    }
 
     const li = document.createElement("li");
-    li.textContent = taskText;
+    
 
     li.innerHTML = `
     <span>${taskText}</span>
@@ -71,6 +100,7 @@ function addTask(event) {
     attachEvents(li);
 
     input.value = "";
+    clearInputError();
     saveTasks();
 }
 
@@ -172,7 +202,28 @@ function saveTasks() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-
+/*to save the data at local storage when we do refresh to page, the will remain */
+document.addEventListener("DOMContentLoaded",loadtasks);
+function loadtasks(){
+    const savedtasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    savedtasks.forEach(task=> {
+        const li = document.createElement("li");
+        li.innerHTML = `
+        <span>${task.text}</span>
+        <div>
+            <input type="checkbox" class="task-check" />
+            <button class="edit-btn"><i class="fa-solid fa-pen"></i></button>
+            <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+        </div>
+        `;
+        if(task.completed){
+            li.classList.add("completed");
+            li.querySelector(".task-check").checked = true;
+        }
+        list.appendChild(li);
+        attachEvents(li);
+    });
+}
 
 
 

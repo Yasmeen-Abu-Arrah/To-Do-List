@@ -164,7 +164,7 @@ body {
             }
 
         }
-
+       
         #edition {
             border: 2px solid black;
             outline: none;
@@ -204,6 +204,16 @@ body {
             }
         }
     }
+
+     #input-error.error-msg{
+                color: #e94343;
+                font-size: 0.85rem;
+                margin-top: 4px;
+                margin-left: 3px;
+                display: none;
+                font-family: Arial, Helvetica, sans-serif;
+            
+        }
 
     #delete {
         .modal_box {
