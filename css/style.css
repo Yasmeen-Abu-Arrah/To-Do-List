@@ -155,6 +155,14 @@ body {
             border-radius: 10px;
             text-align: center;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+            .error-msg {
+                color: #e94343;
+                font-size: 0.85rem;
+                margin-top: 4px;
+                display: none;
+            }
+
         }
 
         #edition {
